@@ -1,0 +1,53 @@
+<header>
+  <nav>
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.jpeg" width="180" height="80" alt="Logo" />
+      </a>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="/" class="anchor">Home</a></li>
+      <li class="drop-list">
+        <a href="/products" class="anchor">Products</a>
+        <ul class="drop-down">
+          <li class="image-p">
+            <a href="/products?collection=men">
+              <img src="/images/men.jpeg" alt="Men products" />
+              <div class="image-title"><span>Men</span></div>
+            </a>
+          </li>
+          <li class="image-p">
+            <a href="/products?collection=women">
+              <img src="/images/slider2.jpeg" alt="Women products" />
+              <div class="image-title"><span>Women</span></div>
+            </a>
+          </li>
+          <li class="image-p">
+            <a href="/products?collection=unisex">
+              <img src="/images/unisex.png" alt="Unisex Products" />
+              <div class="image-title"><span>Unisex</span></div>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav-icons">
+      <li>
+        <% if (user && user.token) { %>
+        <span
+          >Welcome Back
+          <span style="font-weight: bold; padding-right: 10px"
+            ><%= user.name %></span
+          ></span
+        >
+        <i class="fa-solid fa-sign-out" onclick="logout()"></i>
+        <li id="cart-btn"><i class="fa-solid fa-cart-shopping"></i></li>
+        <li id="wishlist-btn"><i class="fa-solid fa-heart"></i></li>
+        <% } else { %>
+        <i class="fa-solid fa-user" onclick="showPopup()"></i>
+        <% } %>
+      </li>
+    </ul>
+  </nav>
+</header>

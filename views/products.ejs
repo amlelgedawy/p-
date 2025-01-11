@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/allProducts.css" />
+    <link rel="stylesheet" href="/css/signIn.css" />
+    <title>All products</title>
+  </head>
+  <body>
+    <!-- Modal Popup Container -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+          <h2 class="form-title">Login</h2>
+          <form id="login">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" required />
+            <h2 class="validation-message" id="loginEmailError"></h2>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required />
+            <h2 class="validation-message" id="loginPasswordError"></h2>
+
+            <button type="button" class="submit-button" onclick="login()">
+              Login
+            </button>
+          </form>
+          <p>
+            Don't have an account?
+            <a href="#" onclick="toggleForms()">Sign up</a>
+          </p>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" style="display: none">
+          <h2 class="form-title">Signup</h2>
+          <form id="signup">
+            <label for="signupName">Name:</label>
+            <input type="text" name="name" id="signupName" required />
+            <h2 class="validation-message" id="signupNameError"></h2>
+
+            <label for="signupPhone">Phone:</label>
+            <input type="text" name="phone" id="signupPhone" required />
+            <h2 class="validation-message" id="signupPhoneError"></h2>
+
+            <label for="signupAddress">Address:</label>
+            <input type="text" name="address" id="signupAddress" required />
+            <h2 class="validation-message" id="signupAddressError"></h2>
+
+            <label for="signupEmail">Email:</label>
+            <input type="email" name="email" id="signupEmail" required />
+            <h2 class="validation-message" id="signupEmailError"></h2>
+
+            <label for="signupPassword">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="signupPassword"
+              required
+            />
+            <h2 class="validation-message" id="signupPasswordError"></h2>
+
+            <label for="signupConfirmPassword">Confirm Password:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="signupConfirmPassword"
+              required
+            />
+            <h2 class="validation-message" id="signupConfirmPasswordError"></h2>
+
+            <button type="button" class="submit-button" onclick="signup()">
+              Sign Up
+            </button>
+          </form>
+          <p>
+            Already have an account?
+            <a href="#" onclick="toggleForms()">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+     <!-- Wishlist Aside -->
+    <aside id="wishlist" class="aside">
+      <div class="head-container">
+        <h2>Wishlist</h2>
+        <button class="close-btn" id="close-wishlist">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="products-aside-container">
+        <% if (wishlist && wishlist.length > 0) { %>
+        <% wishlist.forEach(product => { %>
+        <div id="<%= product._id %>" class="product-aside">
+          <button class="delete" onclick="removeFromWishlist('<%= product._id %>')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
+          <div class="product-aside-details">
+            <h3><%= product.name %></h3>
+            <span><%= product.price %>$</span>
+          </div>
+        </div>
+        <% }) %> <% } else { %>
+        <p>Your wishlist is empty.</p>
+        <% } %>
+      </div>
+    </aside>
+
+    <!-- Cart Aside -->
+    <aside id="cart" class="aside">
+      <div class="head-container">
+        <h2>Cart</h2>
+        <button class="close-btn" id="close-cart">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="products-aside-container">
+        <% if (cart && cart.products.length > 0) { %> <%
+        cart.products.forEach(product => { %>
+        <div id="<%= product._id %>" class="product-aside">
+          <button
+            class="delete"
+            onclick="removeFromCart('<%= product._id %>', '<%= product.price %>')"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
+          <div class="product-aside-details">
+            <h3><%= product.name %></h3>
+            <span><%= product.price %>$</span>
+          </div>
+        </div>
+        <% }) %> <% } else { %>
+        <p>Your cart is empty.</p>
+        <% } %>
+      </div>
+
+      <% if (cart && cart.products.length > 0) { %>
+      <h2 class="total">
+        Total Amount: <span id="total-price"><%= cart.total %></span>$
+      </h2>
+      <div class="checkout">
+        <a href="/payments/checkout"><button>Proceed to checkout</button></a>
+      </div>
+      <% } %>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <div class="all-products">
+      <h2 class="products-title"><%= title %></h2>
+
+      <div class="product-parent">
+        <% products.forEach(product => {%>
+        <div class="product">
+          <div class="bar"></div>
+          <div class="image-parent">
+            <img src="<%= product.image %>" alt="product" />
+          </div>
+          <p class="title"><%= product.name %></p>
+          <div class="stars-container">
+            <% for(let i = 0; i < 5; i++) { %>
+            <i
+              class="fa-solid fa-star"
+              style="color: <%= i < product.rating ? '#ffd700' : '#ddd' %>"
+            ></i>
+            <% } %>
+          </div>
+          <div class="add-container">
+            <button
+              class="add-wishlist"
+              onclick="addToWishlist('<%= product._id %>')"
+            >
+              <i class="fa-solid fa-heart"></i><span>Add to wishlist</span>
+            </button>
+            <button class="add-cart" onclick="addToCart('<%= product._id %>')">
+              <i class="fa-solid fa-cart-shopping"></i> <span>Add to cart</span>
+            </button>
+          </div>
+          <div class="price-container">
+            <span>$<%= product.price %></span>
+          </div>
+        </div>
+        <%})%>
+      </div>
+    </div>
+    <script>
+      let totalPrice = "<%= cart && cart.total !== undefined ? cart.total : 0 %>";
+      function addToWishlist(productId) {
+        if(!'<%= user && user.token %>'){
+          showPopup();
+          return;
+        }
+        fetch(`/users/wishlist/${productId}`, { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => {
+            alert("product added to wishlist");
+            window.location.reload();
+          })
+          .catch((err) => console.error("Error removing product:", err));
+      }
+
+      function removeFromWishlist(productId) {
+        const productElement = document.getElementById(productId);
+        if (productElement) {
+          productElement.remove();
+        }
+
+        fetch(`/users/wishlist/${productId}`, { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => console.log("Product removed:", data))
+          .catch((err) => console.error("Error removing product:", err));
+      }
+
+      function addToCart(productId) {
+        if(!'<%= user && user.token %>'){
+          showPopup();
+          return;
+        }
+        fetch(`/users/cart/${productId}`, { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => {
+            alert("product added to cart");
+            window.location.reload();
+          })
+          .catch((err) => console.error("Error removing product:", err));
+      }
+
+      function removeFromCart(productId, productPrice) {
+        const productElement = document.getElementById(productId);
+        if (productElement) {
+          productElement.remove();
+          console.log(productPrice);
+          updateTotal(-productPrice);
+        }
+
+        fetch(`/users/cart/${productId}`, { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => console.log("Product removed:", data))
+          .catch((err) => console.error("Error removing product:", err));
+      }
+
+      function updateTotal(amount) {
+        totalPrice += amount;
+        document.getElementById("total-price").textContent =
+          parseInt(totalPrice);
+      }
+    </script>
+  </body>
+</html>
