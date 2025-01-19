@@ -1,0 +1,191 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.dashboard-container {
+	display: flex;
+	height: 100vh;
+}
+
+.sidebar {
+	background-color: #2c3e50;
+	color: white;
+	padding: 20px;
+	width: 250px;
+	min-height: 10vh;
+}
+
+.sidebar h2 {
+	margin-bottom: 20px;
+}
+
+.sidebar ul {
+	list-style: none;
+	padding: 0;
+}
+
+.sidebar ul li {
+	margin: 10px 0;
+}
+
+.sidebar ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+	text-decoration: underline;
+}
+
+.main-content {
+	flex: 1;
+	padding: 20px;
+}
+
+.stats {
+	display: flex;
+	gap: 20px;
+}
+
+.stat-box {
+	background-color: #ecf0f1;
+	padding: 20px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.main-content {
+	padding-top: 80px; /* Adjust this value based on your navbar height */
+}
+
+.dashboard-container {
+	padding-top: 80px; /* Match this with the navbar's height */
+}
+
+/* Edit and Delete Buttons */
+.btn-edit,
+.btn-delete {
+	padding: 10px 15px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-right: 10px;
+}
+
+.btn-edit {
+	background-color: #27ae60; /* Green for Edit */
+}
+
+.btn-edit:hover {
+	background-color: #1e8449; /* Darker Green on Hover */
+}
+
+.btn-delete {
+	background-color: #e74c3c; /* Red for Delete */
+}
+
+.btn-delete:hover {
+	background-color: #c0392b; /* Darker Red on Hover */
+}
+
+/* Add flex display for action buttons */
+.table-actions {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+}
+
+/* Table Styling */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+table th,
+table td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: left;
+}
+
+table th {
+	background-color: #2c3e50;
+	color: white;
+}
+
+table tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+table tr:hover {
+	background-color: #f1f1f1;
+}
+
+/* Pagination Controls */
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.pagination a {
+	margin: 0 5px;
+	padding: 8px 12px;
+	text-decoration: none;
+	color: black;
+	border: 1px solid black;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+	background-color: #2c3e50;
+	color: white;
+}
+
+.pagination a.active {
+	background-color: #27ae60;
+	color: white;
+	border: 1px solid #27ae60;
+}
+/* Admin Edit User Form */
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	max-width: 400px;
+}
+
+form label {
+	font-weight: bold;
+}
+
+form input,
+form textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+form button {
+	padding: 10px 15px;
+	background-color: #27ae60;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+form button:hover {
+	background-color: #1e8449;
+}

@@ -1,0 +1,55 @@
+.all-products {
+  padding: 100px 0px;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.all-products .products-title {
+  text-align: center;
+  margin: 50px auto;
+}
+.all-products .card {
+  width: 340px;
+  height: 340px;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.all-products .card .card-image {
+  border-radius: 20px;
+  width: 340px;
+  height: 340px;
+}
+.all-products .card .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.575);
+}
+.all-products .card .overlay .card-title {
+  width: 85%;
+  padding: 16px 0px;
+  border-radius: 20px;
+  height: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+.all-products .card .overlay .card-title p {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+}

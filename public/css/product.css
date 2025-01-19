@@ -1,0 +1,208 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+table th,
+table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+table th {
+	background-color: #f4f4f4;
+}
+
+.btn {
+	padding: 10px 15px;
+	background-color: #3498db;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.btn:hover {
+	background-color: #2980b9;
+}
+.main-content {
+	padding-top: 80px; /* Adjust this value based on your navbar height */
+}
+
+/* General styling for admin pages */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.dashboard-container {
+	display: flex;
+	height: 120vh;
+}
+
+.sidebar {
+	background-color: #2c3e50;
+	color: white;
+	padding: 20px;
+	width: 250px;
+	min-height: 100vh;
+}
+
+.sidebar h2 {
+	margin-bottom: 20px;
+}
+
+.sidebar ul {
+	list-style: none;
+	padding: 0;
+}
+
+.sidebar ul li {
+	margin: 10px 0;
+}
+
+.sidebar ul li a {
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+	background-color: #34495e;
+}
+
+.main-content {
+	flex: 1;
+	padding: 20px;
+}
+
+h1 {
+	color: #2c3e50;
+}
+
+.btn {
+	background-color: #3498db;
+	color: white;
+	padding: 10px 20px;
+	text-decoration: none;
+	border-radius: 5px;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.btn:hover {
+	background-color: #2980b9;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+table th,
+table td {
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+table th {
+	background-color: gray;
+}
+
+table tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+.action-buttons a {
+	text-decoration: none;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+.action-buttons .edit {
+	background-color: #27ae60;
+}
+
+.action-buttons .edit:hover {
+	background-color: #219150;
+}
+
+.action-buttons .delete {
+	background-color: #e74c3c;
+}
+
+.action-buttons .delete:hover {
+	background-color: #c0392b;
+}
+
+.edit-product-container {
+	max-width: 600px;
+	margin: 50px auto;
+	padding: 20px;
+	padding: 50px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-product-container h1 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #2c3e50;
+	text-align: center;
+}
+
+.edit-product-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	font-size: 14px;
+	color: #34495e;
+	margin-bottom: 5px;
+}
+
+.form-input {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.form-input:focus {
+	border-color: #3498db;
+	outline: none;
+	box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.form-actions {
+	text-align: center;
+}
+
+.btn-submit {
+	background-color: #27ae60;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.btn-submit:hover {
+	background-color: #219150;
+}
