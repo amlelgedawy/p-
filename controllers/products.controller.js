@@ -35,5 +35,5 @@ async function deleteProduct(req, res) {
     await Product.findByIdAndDelete(req.params.id);
     return res.status(200).send("Product deleted");
 }
-
+//
 module.exports = { getAllProducts, getProductById, createProduct, updateProduct, deleteProduct };
