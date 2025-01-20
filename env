@@ -1,0 +1,15 @@
+JWT_USER_SECRET = "RuhCRKAQhzJEWFm2qMOyMLyHxOVCDmjn"
+JWT_ADMIN_SECRET = "Ja8I0ug5V9XU8dF0vAWlqeKp7Z31A63v"
+JWT_USER_EXPIRATION = "18h"
+JWT_KEYWORD = "Bearer"
+
+MONGO_URI = "mongodb+srv://joeshirf:joo2330768@mern-stack-project.aiizvnr.mongodb.net/pocket?retryWrites=true&w=majority&appName=MERN-STACK-Project"
+
+PAYMOB_USERNAME="01558807255"
+PAYMOB_PASSWORD="joo2330768#"
+PAYMOB_AUTH_URL="https://accept.paymob.com/api/auth/tokens"
+PAYMOB_QUICK_LINK_URL="https://accept.paymob.com/api/ecommerce/payment-links"
+PAYMOB_HMAC="CD6A77BDCF8A5DC079F609F9155163BE"
+PAYMOB_STATUS="TEST"
+PAYMOB_CURRENCY="EGP"
+PAYMOB_INTEGRATION_ID=4912611
