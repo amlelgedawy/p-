@@ -2,7 +2,7 @@ const { User } = require("../models/User");
 const { Admin } = require("../models/Admin");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+//validate
 async function loginController(req, res) {
 	try {
 		const { email, password } = req.body;
@@ -16,7 +16,7 @@ async function loginController(req, res) {
 				message: "User or Admin not found",
 			});
 		}
-
+               
 		const isAdmin = !!admin;
 		const account = admin || user;
 
